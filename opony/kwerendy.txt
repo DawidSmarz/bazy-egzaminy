@@ -1,0 +1,19 @@
+SELECT opony.cena
+FROM opony
+ORDER BY opony.cena ASC
+LIMIT 10;
+
+SELECT opony.producent, opony.model, opony.sezon, opony.cena
+FROM opony
+WHERE opony.nr_kat ="9";
+
+
+SELECT zamowienie.id_zam, zamowienie.ilosc, opony.model, opony.cena
+FROM zamowienie
+JOIN opony ON zamowienie.nr_kat = opony.nr_kat
+ORDER BY RAND() 
+LIMIT 1;
+
+UPDATE `opony` 
+SET `cena` = `cena` * 0.25
+WHERE `sezon` = "letnia";

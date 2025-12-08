@@ -1,0 +1,14 @@
+SELECT kursy.kod, kursy.nazwa, kursy.cena
+FROM kursy
+ORDER BY kursy.cena ASC;
+
+SELECT kursy.nazwa
+FROM kursy;
+
+UPDATE `uczestnicy` SET `imie`='Tadeusz',`nazwisko`='Wysocki',`wiek`='36' WHERE 1;
+
+
+SELECT kursy.nazwa, COUNT(kursy_uczestnicy.id_uczestnika) AS "zapisancyh"
+FROM kursy
+JOIN kursy_uczestnicy ON kursy_uczestnicy.kod_kursu = kursy.kod
+GROUP BY kursy.nazwa;
