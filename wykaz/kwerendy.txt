@@ -1,0 +1,27 @@
+1.
+
+SELECT LOWER(wojewodztwa.nazwa)
+FROM województwa
+
+2.
+
+SELECT COUNT(miasta.id)
+FROM miasta
+JOIN wojewodztwa ON miasta.id_wojewodztwa = wojewodztwa.id
+WHERE wojewodztwa.id = "1"
+
+3.
+
+SELECT miasta.nazwa, wojewodztwa.nazwa
+FROM miasta
+JOIN wojewodztwa ON miasta.id_wojewodztwa= wojewodztwa.id
+WHERE miasta.nazwa LIKE "Lu%"
+
+
+4.
+
+
+SELECT wojewodztwa.nazwa, COUNT(miasta.id) AS "miasta"
+FROM wojewodztwa 
+JOIN miasta ON miasta.id_wojewodztwa = wojewodztwa.id
+GROUP BY wojewodztwa.nazwa
