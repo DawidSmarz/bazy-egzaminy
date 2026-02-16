@@ -1,0 +1,31 @@
+ZADANIE 1
+
+SELECT maturzysta.id, maturzysta.imie, maturzysta.nazwisko
+FROM maturzysta
+WHERE maturzysta.szkola = "T3"
+ORDER BY maturzysta.szkola ASC;
+
+ZADANIE 2
+
+SELECT DISTINCT arkusz.przedmiot
+FROM arkusz;
+
+ZADANIE 3
+
+SELECT MIN(arkusz.rok), MAX(arkusz.rok)
+FROM arkusz;
+
+ZADANIE 4
+
+SELECT wynik.maturzysta_id, AVG(wynik.punkty) AS "wynik"
+FROM wynik
+GROUP BY wynik.maturzysta_id
+ORDER BY wynik DESC
+LIMIT 1;
+
+ZADANIE 5
+
+SELECT arkusz.rok, arkusz.sesja, arkusz.przedmiot, wynik.punkty
+FROM arkusz
+JOIN wynik ON arkusz.symbol = wynik.symbol
+WHERE wynik.maturzysta_id = "31";
