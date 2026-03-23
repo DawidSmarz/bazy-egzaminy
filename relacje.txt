@@ -1,0 +1,36 @@
+1. ALTER TABLE students
+ADD FOREIGN KEY (class_id) REFERENCES classes(class_id);
+
+2.ALTER TABLE subjects
+ADD FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id);
+
+3.ALTER TABLE grades
+ADD FOREIGN KEY (student_id) REFERENCES students(student_id);
+
+4.ALTER TABLE grades
+ADD FOREIGN KEY (subject_id) REFERENCES subjects(subject_id);
+
+5.ALTER TABLE student_subjects
+ADD PRIMARY KEY (student_id, subject_id),
+ADD FOREIGN KEY (student_id) REFERENCES students(student_id),
+ADD FOREIGN KEY (subject_id) REFERENCES subjects(subject_id);
+
+6.ALTER TABLE grades
+ADD CHECK (grade BETWEEN 1 and 6);
+
+7.CREATE TABLE students_profiles (
+    student_id INT PRIMARY KEY,
+    adres VARCHAR(50),
+    miasto VARCHAR(30),
+    telefon VARCHAR(11),
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
+
+8. ALTER TABLE students
+ADD FOREIGN KEY (class_id) REFERENCES classes(class_id)
+ON DELETE SET null;
+
+9. indeks działa jak spis treści w książce 
+
+CREATE INDEX idx_grades_student_id
+ON grades(student_id);
